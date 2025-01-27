@@ -41,7 +41,7 @@
 ### Techstack
  Made in object oriented Python, it uses Flask microframework as the web server gateway interface (WSGI). It uses Jinja, HTML, JavaScript, and is styled with CSS. The visualization components for the range inputs were developed in JavaScript. For more details, see [Dependencies](#dependencies).
  
- - Python (3.9.18)
+ - Python (3.12)
  - Flask
  - Pandas
  - JavaScript
@@ -49,10 +49,10 @@
 ## Dependencies
 
 ### Getting Started with Flask
-Web framework used was [Flask](https://flask.palletsprojects.com/en/3.0.x/installation/#install-flask) (3.0.2). Application uses [Jinja](https://jinja.palletsprojects.com/en/3.1.x/intro/#installation) (3.1.3) templating.
+Web framework used was [Flask](https://flask.palletsprojects.com/en/3.0.x/installation/#install-flask). Application uses [Jinja](https://jinja.palletsprojects.com/en/3.1.x/intro/#installation) templating.
 
 ### Getting Started with Pandas
-Data manipulation uses [Pandas](https://pandas.pydata.org/getting_started.html)  (2.2.2).
+Data manipulation uses [Pandas](https://pandas.pydata.org/getting_started.html).
 
 ## Running the app
 ### Install dependencies
