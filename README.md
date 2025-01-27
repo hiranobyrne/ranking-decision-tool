@@ -29,9 +29,9 @@
  - **Ranking view:** ranking with selection of different calculation methods.
 
 ### Directories structure
- - **./ :** root directory of the project, with the Python application. Also contains the project's metadata files, and configuration files.
+ - **./ :** root directory of the project. Contains the project's metadata files, and configuration files.
  - **./data :** all csv data used.
- - **./app** 
+ - **./app :** the Python application.
  - **./app/routes :** all routes and backend code.
  - **./app/logic :** business logic. In this case, the AHP class. Other classes can be added for different MCDM techniques.
  - **./app/static :** all static assets, such as images, icons, Javascript and CSS files.
