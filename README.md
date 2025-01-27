@@ -13,9 +13,10 @@
 ## About
  A web application that ranks data according to custom criteria and individual preferences, using the Analytical Hierachical Process (AHP) algorithm, helping with decision making in a car purchase process.
 
- <img width="500" alt="screenshot" src="https://github.com/hiranobyrne/car-ranking-decision-tool/assets/alternatives_preferences_screen.png?raw=true">
+### Images
+ - <img width="500" alt="screenshot" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/ed7c37f4526409366a0c3d92d8a99547ac18dd82/assets/alternatives_preferences_screen.png?raw=true">
 
- <img width="500" alt="screenshot" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/9cf4f44252b94a0d5de5e0149302929c991820c3/assets/ranking_screen.png?raw=true">
+ - <img width="500" alt="screenshot" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/9cf4f44252b94a0d5de5e0149302929c991820c3/assets/ranking_screen.png?raw=true">
 
 ## Project Setup
 
