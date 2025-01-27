@@ -54,7 +54,7 @@ Web framework used was [Flask](https://flask.palletsprojects.com/en/3.0.x/instal
 ### Getting Started with Pandas
 Data manipulation uses [Pandas](https://pandas.pydata.org/getting_started.html)  (2.2.2).
 
-## Execution
+## Running the app
 ### Install dependencies
 ```pip install -r requirements.txt```
 
