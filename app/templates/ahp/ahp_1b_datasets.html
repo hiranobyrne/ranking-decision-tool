@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Selection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mcdm.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/material-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ahp.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}">
+</head>
+<body>
+    <div class="card">
+
+    <h1>Analytical Hierarchy Process (AHP)</h1>
+
+    <form method="POST" action="{{ url_for('main.ahp_dataset_selection') }}">
+
+    <h2>Select Dataset and Alternatives</h2>
+        <label for="dataset">Choose a source dataset:</label>
+        <select id="dataset" name="dataset" onchange="loadColumns(this.value)" required>
+            <option value="">Select a dataset</option>
+            {% for csv_file in csv_files %}
+                <option value="{{ csv_file }}">{{ csv_file }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="alternatives_column">Choose an Alternatives column:</label>
+        <select id="alternatives_column" name="alternatives_column" required>
+            <option value="">Select the Alternatives column</option>
+        </select>
+
+        <br><br>
+
+        <div class="button-container">
+            <button type="submit" class="submit-button">Next</button>
+        </div>
+
+    </form>
+
+    <script>
+        async function loadColumns(dataset) {
+            const response = await fetch(`/load_columns?dataset=${dataset}`);
+            const columns = await response.json();
+
+            const alternativesColumnSelect = document.getElementById('alternatives_column');
+            alternativesColumnSelect.innerHTML = '<option value="">Select the Alternatives column</option>';
+            columns.forEach(column => {
+                const option = document.createElement('option');
+                option.value = column;
+                // option.textContent = column;
+                option.textContent = column.replace(/_/g, ' ');
+                alternativesColumnSelect.appendChild(option);
+            });
+        }
+    </script>
+
+    </div>
+</body>
+</html>

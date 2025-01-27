@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Selection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mcdm.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/material-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ahp.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}">
+</head>
+<body class="top_section">
+<div class="transparent-container">
+    <h1 class="form-title">Analytical Hierarchy Process (AHP)</h1>
+    <form method="POST" action="{{ url_for('main.ahp_dataset_selection') }}">
+        <h2 class="label">Pre-selected Dataset</h2>
+        <label for="dataset">Selected dataset:</label>
+        <input type="text" id="dataset" name="dataset" value="{{ csv_files[0] }}" readonly>
+        <br><br>
+        <label for="alternatives_column">Selected Alternatives column:</label>
+        <input type="text" id="alternatives_column" name="alternatives_column" value="{{ alternatives_column }}" readonly>
+        <br><br>
+        <div class="d-flex justify-content-center gap-2">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

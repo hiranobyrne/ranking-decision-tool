@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHP Selection of Criterion and Alternatives</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mcdm.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/material-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ahp.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}">
+    <script src="{{ url_for('static', filename='js/ahp_dropdown.js') }}" defer></script>
+</head>
+
+<body class="top_section">
+<div class="transparent-container">
+    <h1 class="form-title">Analytical Hierarchy Process (AHP)</h1>
+    <form method="POST" action="{{ url_for('main.ahp_criterion_alternatives') }}">
+        <h2 class="label">Criterion selection</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Select at least two criterion</th>
+            </tr>
+            </thead>
+            <tbody class="label">
+            {% for i in range(columns|length - 1 if columns|length < 5 else 5) %}
+                <tr>
+                    <td> Criterion {{ i+1 }}
+                        <select name="criterion_{{ i + 1 }}">
+                            <option value="">
+                                Select Criterion {{ i+1 }}
+                                {% if i+1 > 2 %}
+                                    [Optional]
+                                {% endif %}
+                            </option>
+                            {% for column in columns %}
+                                {% if column != alternatives_column %}
+                                    <option value="{{ column }}">{{ column.replace('_', ' ') }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="label">Alternatives selection</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Choose at least two {{ alternatives_column.replace('_', ' ') }}s as AHP alternatives</th>
+            </tr>
+            </thead>
+            <tbody class="label">
+            {% for i in range(dataset|length if dataset|length < 5 else 5) %}
+                <tr>
+                    <td> Alternative {{ i+1 }}
+                        <select name="alternative_{{ i + 1 }}">
+                            <option value="">
+                                Select Alternative {{ i+1 }}
+                                {% if i+1 > 2 %}
+                                    [Optional]
+                                {% endif %}
+                            </option>
+                            {% for dataset_row in dataset %}
+                                <option value="{{ dataset_row[alternatives_column] }}">
+                                    {{ dataset_row[alternatives_column] }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center gap-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

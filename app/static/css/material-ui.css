@@ -1,0 +1,182 @@
+/* Estilo semelhante ao Material UI,
+pra ficar parecido com o app do Challenge 1 */
+
+/*TODO: dark theme*/
+
+* {
+    margin: 7px;
+    padding: 7px;
+    box-sizing: border-box;
+}
+
+strong {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.5;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #3f51b5;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #303f9f;
+}
+
+button:disabled {
+    background-color: #9e9e9e;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    font-family: 'Roboto', sans-serif;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+    border-color: #3f51b5;
+    outline: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    background-color: #3f51b5;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    color: #ddd;
+}
+
+footer {
+    background-color: #3f51b5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-material {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 16px 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    table th, table td {
+        padding: 8px 12px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.button:hover {
+    background-color: #0056b3;
+}

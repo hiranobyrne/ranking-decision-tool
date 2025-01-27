@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHP Rankings</title>
+    <title>AHP: Alternatives Preferences</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mcdm.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/material-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ahp.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-theme.css') }}">
+</head>
+<body class="top_section">
+    <div class="transparent-container">
+    <h1 class="label">Analytical Hierarchy Process (AHP)</h1>
+    <h2 class="label">Rankings</h2>
+
+    <form method="GET" action="/ahp/ranking">
+        <label for="process-select">Select calculation method used:</label>
+        <select id="process-select" name="process">
+            <option value="eigenvalue" {% if selected_process == 'eigenvalue' %}selected{% endif %}>Eigenvalue</option>
+            <option value="geometric" {% if selected_process == 'geometric' %}selected{% endif %}>Geometric Mean</option>
+            <option value="approximation" {% if selected_process == 'approximation' %}selected{% endif %}>Approximation</option>
+            <option value="all" {% if selected_process == 'all' %}selected{% endif %}>Show All</option>
+        </select>
+        <button type="submit">Show Rankings</button>
+    </form>
+
+    {% if selected_process != 'all' %}
+        <h3>Ranking using {{ selected_process.capitalize() }}</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>
+                        {{ alternatives_column.replace('_', ' ') }}<br/>
+                        <em>Alternatives</em>
+                    </th>
+                    <th>
+                        Rank Score<br/>
+                            <em>Overall Priorities</em>
+                    </th>
+                    {% for col in selected_criterion %}
+                    <th class="highlight">
+                        {{ col.replace('_', ' ') }}<br/>
+                        <em>Criteria</em>
+                    </th>
+                    {% endfor %}
+{#                    {% for col in all_columns %}#}
+{#                    {% if col not in selected_criterion and col != alternatives_column %}#}
+{#                    <th class="non-highlight">{{ col.replace('_', ' ') }}</th>#}
+{#                    {% endif %}#}
+{#                    {% endfor %}#}
+{#                    <th>&nbsp;</th>#}
+                </tr>
+            </thead>
+            <tbody>
+                {% set sum_priority = namespace(value=0) %}
+                {% for car, priority in rankings.items() %}
+                {% set sum_priority.value = sum_priority.value + priority %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ car }}</td>
+                    <td>{{ priority }}</td>
+                    {% for col in selected_criterion %}
+                    <td class="highlight">
+                        {{ car_data[car][col] }}
+{#                        _x_#}
+{#                        {{ logs[selected_process][col]['Global Priorities']['Global Priorities values'] }}#}
+{#                        {% for key, log in logs[selected_process] %}#}
+{#                            {{ key }}: {{ log | tojson(indent=4) }}#}
+{#                        {% endfor %}#}
+                    </td>
+                    {% endfor %}
+{#                    {% for col in all_columns %}#}
+{#                    {% if col not in selected_criterion and col != alternatives_column %}#}
+{#                    <td class="non-highlight">{{ car_data[car][col] }}</td>#}
+{#                    {% endif %}#}
+{#                    {% endfor %}#}
+{#                    <td>#}
+{#                        <a href="/car_versions/{{ car_data[car]['Brand'] }}/{{ car_data[car]['Trade_Name'] }}" class="btn btn-primary" style="padding: 10px;">View Versions</a>#}
+{#                    </td>#}
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td><em>Sum</em></td>
+                    <td>-</td>
+                    <td><em>{{ sum_priority.value }}</em></td>
+                    {% for col in selected_criterion %}
+                        <td>&nbsp;</td>
+                    {% endfor %}
+{#                    {% for col in all_columns %}#}
+{#                        {% if col not in selected_criterion and col != alternatives_column %}#}
+{#                            <td>-</td>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                    <td>&nbsp;</td>#}
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+
+        {% for process_name, process_rankings in all_rankings.items() %}
+            <h3 class="label">Ranking using {{ process_name.capitalize() }}</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>
+                            {{ alternatives_column.replace('_', ' ') }}<br/>
+                            <em>Alternatives</em>
+                        </th>
+                        <th>
+                            Rank Score<br/>
+                            <em>Overall Priorities</em>
+                        </th>
+                        {% for col in selected_criterion %}
+                        <th class="highlight">
+                            {{ col.replace('_', ' ') }}<br/>
+                            <em>Criteria</em>
+                        </th>
+                        {% endfor %}
+{#                        {% for col in all_columns %}#}
+{#                        {% if col not in selected_criterion and col != alternatives_column %}#}
+{#                        <th class="non-highlight">{{ col.replace('_', ' ') }}</th>#}
+{#                        {% endif %}#}
+{#                        {% endfor %}#}
+{#                        <th>&nbsp;</th>#}
+                    </tr>
+                </thead>
+                <tbody class="label">
+                    {% set sum_priority = namespace(value=0) %}
+                    {% for car, priority in process_rankings.items() %}
+                    {% set sum_priority.value = sum_priority.value + priority %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ car }}</td>
+                        <td>{{ priority }}</td>
+                        {% for col in selected_criterion %}
+                        <td class="highlight">{{ car_data[car][col] }}</td>
+                        {% endfor %}
+{#                        {% for col in all_columns %}#}
+{#                        {% if col not in selected_criterion and col != alternatives_column %}#}
+{#                        <td class="non-highlight">{{ car_data[car][col] }}</td>#}
+{#                        {% endif %}#}
+{#                        {% endfor %}#}
+{#                        <td>#}
+{#                            <a href="/car_versions/Brand/Trade_Name" class="btn btn-primary">View Versions</a>#}
+{#                          <a href="/car_versions/{{row.Brand}}/{{row.Trade_Name}}" class="btn btn-primary">View Versions</a>#}
+{#                        </td>#}
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><em>Sum</em></td>
+                        <td>-</td>
+                        <td><em>{{ sum_priority.value }}</em></td>
+                        {% for col in selected_criterion %}
+                        <td>&nbsp;</td>
+                        {% endfor %}
+{#                        {% for col in all_columns %}#}
+{#                        {% if col not in selected_criterion and col != alternatives_column %}#}
+{#                        <td>-</td>#}
+{#                        {% endif %}#}
+{#                        {% endfor %}#}
+{#                        <td>&nbsp;</td>#}
+                    </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+    {% endif %}
+    <h2 class="label">Pairwise Watrices: Preferences/Weights Selected</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Criterion</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody class="label">{% for criterion, matrix in pairwise_matrices.items() %}
+            {% if criterion == 'criterion' %}
+                <tr>
+                    <td>
+                        <strong>Weights of Criterion</strong>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    {% for criteria in selected_criterion %}
+                                        <th>{{ criteria.replace('_', ' ') }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in matrix %}
+                                    <tr>
+                                        <th>
+                                            <strong>{{ selected_criterion[loop.index - 1] }}</strong>
+                                        </th>
+                                        {% for value in row %}
+                                            <td>{{ value | round(3) }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+            {% for criterion, matrix in pairwise_matrices.items() %}
+            {% if criterion != 'criterion' %}
+            <tr>
+                <td>
+                    {{ criterion.replace('_', ' ') }}
+                </td>
+                <td>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                {% for i in range(selected_alternatives | length) %}
+                                <th>{{ selected_alternatives[i] }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in matrix %}
+                            <tr>
+                                {% for value in row %}
+                                <td>{{ value | round(3) }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2 class="label">Consistency Calculations</h2>
+{#    <pre>#}
+{#    {% for key, log in logs.items() %}#}
+{#            {{ key }}: {{ log | tojson(indent=4) }}#}
+{#    {% endfor %}#}
+{#    </pre>#}
+
+    {% for key1, value1 in logs.items() %}
+        <h3 class="label">{{ key1 | capitalize }}</h3>
+        {% for key2, value2 in value1.items() %}
+            <table class="label">
+            {% if key1 != key2 %}
+            <tr><th colspan="2"><h4>
+                {% if selected_process != 'all' %}
+                    {{ loop.index }}.
+                {% endif %}
+                {{ key2 | capitalize }}</h4></th></tr>
+            {% endif %}
+
+            {% for key3, value3 in value2.items() %}
+                {% if selected_process == 'all' %}
+                    </table>
+                    <table>
+                {% endif %}
+                <tr><th colspan="2">
+                    <h4>
+                        {% if selected_process == 'all' %}
+                            {{ loop.index }}.
+                        {% endif %}
+                    <em>{{ key3 | capitalize }}</em></h4></th></tr>
+                {% for key4, value4 in value3.items() %}
+                    {% if selected_process != 'all' %}
+                    <tr>
+                        <td>{{ key4 }}: {{ value4 }}</td>
+                    </tr>
+                    {% else %}
+                    <tr><th colspan="2">
+                        <h4><em>{{ key4 | capitalize }}</em></h4>
+                    </th></tr>
+                    {% for key5, value5 in value4.items() %}
+                     <tr>
+                         <td>{{ key5 }}: {{ value5 }}</td>
+                     </tr>
+                     {% endfor %}
+                    {% endif %}
+                {% endfor %}
+
+            {% endfor %}
+            </table>
+        {% endfor %}
+
+        <p>&nbsp;</p>
+    {% endfor %}
+
+
+    <p>Timestamp: {{ date_time }}</p>
+    </div>
+</body>
+</html>
