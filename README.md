@@ -48,14 +48,6 @@
 │   │   └── js
 │   ├── templates
 │   │   ├── ahp
-│   │   │   ├── ahp_1_datasets.html
-│   │   │   ├── ahp_1a_confirm_dataset.html
-│   │   │   ├── ahp_1b_datasets.html
-│   │   │   ├── ahp_2_criterion_alternatives.html
-│   │   │   ├── ahp_3_matrices.html
-│   │   │   ├── ahp_4_ranking.html
-│   │   │   ├── ahp_alternatives_weights.html
-│   │   │   └── ahp_criterion_weights.html
 │   │   └── index.html
 │   └── utils
 │       └── utils.py
@@ -63,8 +55,6 @@
 ├── data
 │   ├── cache
 │   └── csv_datasets
-│       ├── ahp_cars.csv
-│       └── ahp_exemplo_slides.csv
 ├── requirements.txt
 └── run.py
 ```
