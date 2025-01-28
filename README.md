@@ -7,6 +7,7 @@
 ## Table of Contents
  - [About](#about)
  - [Project Setup](#project-setup)
+ - [Prerequisites](#prerequisites)
  - [Dependencies](#dependencies)
  - [Execution](#execution)
 
