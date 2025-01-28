@@ -8,7 +8,7 @@
  - [About](#about)
  - [Project Setup](#project-setup)
  - [Prerequisites](#prerequisites)
- - [Dependencies](#dependencies)
+ - [About the Dependencies](#about-the-dependencies)
  - [Execution](#execution)
 
 ## About
