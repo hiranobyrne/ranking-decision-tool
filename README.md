@@ -64,7 +64,7 @@
  - **./app/routes :** all routes and backend code.
  - **./app/logic :** business logic. In this case, the AHP class. Other classes can be added for different MCDM techniques.
  - **./app/static :** all static assets, such as images, icons, Javascript and CSS files.
- - **./app/templates :** templates for the views using mainly HTML and Jinja.
+ - **./app/templates :** templates for the views using mainly HTML, Jinja and JavaScript.
  - **./app/utils :** shared utilitary functions.
 
 ### Techstack
