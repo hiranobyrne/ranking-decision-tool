@@ -9,7 +9,7 @@
  - [Project Setup](#project-setup)
  - [Prerequisites](#prerequisites)
  - [About the Dependencies](#about-the-dependencies)
- - [Execution](#execution)
+ - [Running the App](#running-the-app)
 
 ## About
  A web application that ranks data according to custom multiple-criteria and individual preferences selected by the user. It uses the Analytical Hierachical Process (AHP) algorithm, helping with decision making in a car purchase process.
