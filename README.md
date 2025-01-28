@@ -11,12 +11,16 @@
  - [Execution](#execution)
 
 ## About
- A web application that ranks data according to custom criteria and individual preferences, using the Analytical Hierachical Process (AHP) algorithm, helping with decision making in a car purchase process.
+ A web application that ranks data according to custom multiple-criteria and individual preferences selected by the user. It uses the Analytical Hierachical Process (AHP) algorithm, helping with decision making in a car purchase process.
 
-### Images
- - <img width="500" alt="screenshot" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/ed7c37f4526409366a0c3d92d8a99547ac18dd82/assets/alternatives_preferences_screen.png?raw=true">
+### Screenshots
 
- - <img width="500" alt="screenshot" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/9cf4f44252b94a0d5de5e0149302929c991820c3/assets/ranking_screen.png?raw=true">
+1. **Criteria Selection and Preferences View**  
+   <img width="500" alt="Criterion Selection" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/ed7c37f4526409366a0c3d92d8a99547ac18dd82/assets/alternatives_preferences_screen.png?raw=true">
+
+2. **Final Ranking View**  
+   <img width="500" alt="Ranking View" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/9cf4f44252b94a0d5de5e0149302929c991820c3/assets/ranking_screen.png?raw=true">
+
 
 ## Project Setup
 
@@ -75,7 +79,15 @@
  - Pandas
  - JavaScript
 
-## Dependencies
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Python 3.12 or later**: [Download Python](https://www.python.org/downloads/)
+- **Pip**
+- **Virtual Environment (optional)**
+
+## About the Dependencies
 
 ### Getting Started with Flask
 Web framework used was [Flask](https://flask.palletsprojects.com/en/3.0.x/installation/#install-flask). Application uses [Jinja](https://jinja.palletsprojects.com/en/3.1.x/intro/#installation) templating.
