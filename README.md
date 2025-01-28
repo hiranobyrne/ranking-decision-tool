@@ -29,6 +29,69 @@
  - **Ranking view:** ranking with selection of different calculation methods.
 
 ### Directories structure
+```bash
+.
+├── README.md
+├── __pycache__
+│   ├── config.cpython-311.pyc
+│   └── config.cpython-312.pyc
+├── app
+│   ├── __init__.py
+│   ├── logic
+│   │   ├── __init__.py
+│   │   └── ahp.py
+│   ├── routes
+│   │   ├── __init__.py
+│   │   ├── ahp_routes.py
+│   │   ├── dash_routes.py
+│   │   └── root_routes.py
+│   ├── static
+│   │   ├── css
+│   │   │   ├── ahp.css
+│   │   │   ├── dark-theme.css
+│   │   │   ├── material-ui.css
+│   │   │   └── mcdm.css
+│   │   ├── images
+│   │   └── js
+│   │       ├── ahp.js
+│   │       ├── ahp_dropdown.js
+│   │       ├── app.js
+│   │       └── custom.js
+│   ├── templates
+│   │   ├── ahp
+│   │   │   ├── ahp_1_datasets.html
+│   │   │   ├── ahp_1a_confirm_dataset.html
+│   │   │   ├── ahp_1b_datasets.html
+│   │   │   ├── ahp_2_criterion_alternatives.html
+│   │   │   ├── ahp_3_matrices.html
+│   │   │   ├── ahp_4_ranking.html
+│   │   │   ├── ahp_alternatives_weights.html
+│   │   │   └── ahp_criterion_weights.html
+│   │   └── index.html
+│   └── utils
+│       └── utils.py
+├── assets
+│   ├── alternatives_preferences_screen.png
+│   └── ranking_screen.png
+├── config.py
+├── data
+│   ├── cache
+│   └── csv_datasets
+│       ├── ahp_aprendizagem_automatica_cars.csv
+│       ├── ahp_cars.csv
+│       ├── ahp_exemplo_slides.csv
+│       ├── aprendizagem_automatica_cars.csv
+│       ├── taxi_vehicles_7.csv
+│       ├── taxi_vehicles_small.csv
+│       └── taxi_vehicles_test.csv
+├── flask_session
+│   ├── 2029240f6d1128be89ddc32729463129
+│   ├── 6a8f9f258b5b06312e4b1c3795da266f
+│   └── 78c256b42873fdbae194d5ba502a10f4
+├── old.requirements.txt
+├── requirements.txt
+└── run.py
+```
  - **./ :** root directory of the project. Contains the project's metadata files, and configuration files.
  - **./data :** all csv data used.
  - **./app :** the Python application.
