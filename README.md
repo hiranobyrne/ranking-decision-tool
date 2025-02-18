@@ -12,15 +12,15 @@
  - [Running the App](#running-the-app)
 
 ## About
- A web application that ranks data according to custom multiple-criteria and individual preferences selected by the user. It uses the Analytical Hierachical Process (AHP) algorithm, helping with decision making in a car purchase process.
+ A web application that ranks data according to custom multiple-criteria and individual preferences selected by the user. It uses the Analytical Hierachical Process (AHP) algorithm, helping with decision making in a purchase process.
 
 ### Screenshots
 
 1. **Criteria Selection and Preferences View**  
-   <img width="500" alt="Criterion Selection" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/ed7c37f4526409366a0c3d92d8a99547ac18dd82/assets/alternatives_preferences_screen.png?raw=true">
+   <img width="500" alt="Criterion Selection" src="https://github.com/hiranobyrne/ranking-decision-tool/blob/ed7c37f4526409366a0c3d92d8a99547ac18dd82/assets/alternatives_preferences_screen.png?raw=true">
 
 2. **Final Ranking View**  
-   <img width="500" alt="Ranking View" src="https://github.com/hiranobyrne/car-ranking-decision-tool/blob/9cf4f44252b94a0d5de5e0149302929c991820c3/assets/ranking_screen.png?raw=true">
+   <img width="500" alt="Ranking View" src="https://github.com/hiranobyrne/ranking-decision-tool/blob/9cf4f44252b94a0d5de5e0149302929c991820c3/assets/ranking_screen.png?raw=true">
 
 
 ## Project Setup
